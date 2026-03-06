@@ -1,0 +1,273 @@
+{
+    "meta": {
+      "title": "Projects",
+      "description": "两项可运行交付：API Cookbook + 合作伙伴增长 PoC。每个项目按 case-study（问题→方案→交付→KPI→复盘）结构组织，便于面试快速验证。",
+      "defaultOrder": ["minara-api-cookbook", "card-to-autopilot-poc"]
+    },
+    "projects": [
+      {
+        "id": "minara-api-cookbook",
+        "slug": "minara-api-cookbook",
+        "title": {
+          "zh": "Minara API Developer Cookbook",
+          "en": "Minara API Developer Cookbook"
+        },
+        "oneLiner": {
+          "zh": "把 Minara Agent API 每个接口做成“拿来就能跑”的代码菜谱 + Web Playground，让开发者 5 分钟跑通第一次调用。",
+          "en": "Runnable API cookbook + Web playground to get developers to first successful call in under 5 minutes."
+        },
+        "repo": "https://github.com/7metachain/minara-api-cookbook",
+        "primaryPillars": ["p1-evangelism", "p2-community", "p4-feedback"],
+        "tags": ["DevRel", "API", "DX", "Cookbook", "Playground", "x402", "Onboarding"],
+        "status": "ready",
+        "audience": [
+          "开发者（想快速集成 Minara API）",
+          "生态合作方（想验证 x402 微支付/API 调用模式）",
+          "Minara 文档维护者（需要官方推荐入门路径）"
+        ],
+        "problem": {
+          "zh": "Minara 的 API 文档完整，但开发者常见断层是：看懂了接口说明，却缺少“能直接运行”的端到端示例（认证、请求、错误处理、复用代码结构）。结果是开发者激活慢、试错成本高、支持成本上升。",
+          "en": "Developers often stall between reading docs and writing working code. Missing runnable end-to-end examples slows activation and increases support load."
+        },
+        "solution": {
+          "zh": "用“菜谱式”项目把每个核心接口封装成可运行示例：clone → 填 key → 3 步跑通；同时提供 Web Playground 让开发者先在浏览器试，再复制代码片段到自己的项目里。并把 API Key 与 x402 微支付两种认证方式并列对比，让开发者理解 x402 的场景价值。",
+          "en": "A cookbook-style repo with runnable samples plus a browser playground. Supports both API-key and x402 micropayment auth to accelerate onboarding."
+        },
+        "whatsInside": {
+          "zh": [
+            "覆盖 5 个核心能力接口：AI 对话、交易信号、文本转 Swap、预测市场分析（以及扩展入口/通用封装）",
+            "两种认证方式示例：API Key 与 x402 微支付（对比与选型建议）",
+            "Web Playground：每个接口可交互试用，支持复制代码片段",
+            "统一错误处理与最小可复用 SDK 封装结构（便于开发者二次集成）",
+            "面向官方采纳的文档结构：Quickstart、FAQ、最佳实践、常见坑"
+          ],
+          "en": [
+            "5 core API capabilities with runnable examples",
+            "Two auth methods: API key and x402 micropayment",
+            "Interactive Web Playground with copyable snippets",
+            "Reusable wrapper structure and error handling",
+            "Quickstart + FAQ + best practices for official adoption"
+          ]
+        },
+        "kpiDesign": [
+          {
+            "name": "TTFV（Time to First Value）",
+            "definition": "开发者从第一次打开仓库到成功跑通一个 API 调用的时间",
+            "target": "< 5 minutes",
+            "howToMeasure": "在 Playground/CLI 里记录 first_success_timestamp；或用问卷/事件埋点采样"
+          },
+          {
+            "name": "First Successful Call Rate",
+            "definition": "尝试调用的开发者中，成功得到有效响应的比例",
+            "target": "持续提升（以版本迭代对比）",
+            "howToMeasure": "Playground 事件埋点（success/fail + error_type）"
+          },
+          {
+            "name": "Support Deflection",
+            "definition": "Cookbook/FAQ 是否降低重复支持问题",
+            "target": "重复问题占比下降",
+            "howToMeasure": "GitHub issues/Discord support 主题聚类对比（上线前后）"
+          }
+        ],
+        "operationalIntent": {
+          "zh": [
+            "降低开发者上手门槛：补齐“文档看了→不知道怎么开始写代码”的断层",
+            "加速开发者激活：让第一次成功调用成为可复制路径",
+            "展示 x402 生态：并列示例帮助理解无需注册的钱包微支付场景",
+            "作为官方入门指南候选：可直接嵌入 Minara docs 的推荐路径"
+          ],
+          "en": [
+            "Reduce onboarding friction and close the docs-to-code gap",
+            "Accelerate developer activation via repeatable first success path",
+            "Demonstrate x402 adoption scenarios",
+            "Candidate for official developer onboarding guide"
+          ]
+        },
+        "demoScript2Min": {
+          "zh": [
+            "开场 10 秒：'我用 Cookbook 验证开发者能否 5 分钟跑通 Minara API。'",
+            "展示 Quickstart：clone → env → run（强调 3 步）",
+            "打开 Web Playground：选一个接口→输入参数→一键调用→成功返回",
+            "切换认证方式对比：API Key vs x402（强调适用场景）",
+            "收尾 20 秒：'我把这套路径设计成官方可采纳的 onboarding 资产，并且 KPI 可量化（TTFV）。'"
+          ],
+          "en": [
+            "Goal: get to first successful API call in under 5 minutes",
+            "Show 3-step quickstart",
+            "Run an endpoint in the web playground",
+            "Compare API key vs x402 auth",
+            "Close with measurable KPI design (TTFV)"
+          ]
+        },
+        "screenshots": [
+          {
+            "alt": "Cookbook overview screenshot placeholder",
+            "src": "/images/projects/minara-api-cookbook/overview.png"
+          },
+          {
+            "alt": "Web playground screenshot placeholder",
+            "src": "/images/projects/minara-api-cookbook/playground.png"
+          }
+        ],
+        "quickstart": [
+          "git clone https://github.com/7metachain/minara-api-cookbook",
+          "cp .env.example .env  (fill your API key or x402 config)",
+          "npm install && npm run dev  (or follow README for CLI scripts)"
+        ],
+        "risksAndMitigations": [
+          {
+            "risk": "API 变更导致示例失效",
+            "mitigation": "用最小封装层隔离接口变化；引入版本标记；每次 release 自动跑一遍 smoke test"
+          },
+          {
+            "risk": "新手不理解 x402 场景",
+            "mitigation": "在 README 放选择指南：何时用 API key、何时用 x402；提供最小可运行 demo"
+          }
+        ],
+        "links": {
+          "repo": "https://github.com/7metachain/minara-api-cookbook",
+          "liveDemo": "",
+          "video": ""
+        }
+      },
+      {
+        "id": "card-to-autopilot-poc",
+        "slug": "card-to-autopilot",
+        "title": {
+          "zh": "Card-to-Autopilot PoC",
+          "en": "Card-to-Autopilot PoC"
+        },
+        "oneLiner": {
+          "zh": "用可运行 PoC 证明：合作伙伴（MoonPay）入金流量可转化为 Minara 的“执行用户”（有漏斗、有KPI、有失败兜底）。",
+          "en": "A runnable PoC proving partner deposits can convert fiat users into Minara execution users with measurable funnel KPIs."
+        },
+        "repo": "https://github.com/7metachain/minara-moonpay-demo",
+        "primaryPillars": ["p3-partners", "p4-feedback", "p1-evangelism"],
+        "tags": ["Partner GTM", "PoC", "Activation Funnel", "Risk Rails", "Mock Sandbox", "Telemetry"],
+        "status": "ready",
+        "audience": [
+          "业务负责人/BD（验证合作闭环是否成立）",
+          "产品/工程（评估真实集成所需能力与风险）",
+          "运营（用漏斗诊断新手流失点）"
+        ],
+        "goal": {
+          "zh": "验证“PoC → 集成 → 联合内容 → 上线复盘”的方法论是否可行：先用最小闭环 PoC 把用户旅程跑通并可量化，再推进真实集成与联合增长。",
+          "en": "Validate a full partner GTM loop: PoC first, then integration, co-marketing, and post-launch iteration with measurable KPIs."
+        },
+        "activationFlow": {
+          "zh": [
+            "用户用信用卡买 USDC（模拟 MoonPay 入金）",
+            "系统自动推荐一个低风险 AI 交易计划（新手安全栏）",
+            "用户一键确认（显式 consent）",
+            "自动执行第一笔交易（mock，不用真钱/真 API）",
+            "发送 Telegram 通知（mock），并记录投递是否成功"
+          ],
+          "en": [
+            "Card-to-USDC (MoonPay mock deposit)",
+            "Auto-recommended low-risk AI plan",
+            "One-click confirmation",
+            "Execute first trade (mock sandbox)",
+            "Telegram notification (mock) + delivery tracking"
+          ]
+        },
+        "kpis": [
+          {
+            "name": "Deposit Conversion Rate",
+            "definition": "从点击 Deposit 到入金成功的转化率",
+            "whyItMatters": "合作渠道若只带来入金但无法激活，会造成高成本低回报",
+            "instrumentation": "deposit_start / deposit_success / deposit_fail + fail_reason"
+          },
+          {
+            "name": "TTFE（Time to First Execution）",
+            "definition": "从入金成功到第一笔执行完成的时间",
+            "whyItMatters": "缩短首次执行时间是激活关键",
+            "instrumentation": "deposit_success_timestamp -> first_execution_success_timestamp"
+          },
+          {
+            "name": "Execution Completion Rate",
+            "definition": "推荐计划被确认后，实际执行完成的比例",
+            "whyItMatters": "衡量执行链路稳定性与用户信任",
+            "instrumentation": "plan_confirmed / execution_success / execution_fail + error_type"
+          },
+          {
+            "name": "Notification Delivery Rate",
+            "definition": "执行后通知成功送达的比例",
+            "whyItMatters": "通知是新手获得“反馈回路”的关键，影响留存",
+            "instrumentation": "notify_attempt / notify_success / notify_fail + channel"
+          }
+        ],
+        "failurePaths": {
+          "zh": [
+            "KYC 卡住：给出可理解的下一步提示（换支付方式/稍后再试/联系客服）",
+            "支付失败：解释可能原因与重试策略",
+            "通知失败：提供 Email/站内通知兜底，并提示如何配置 Telegram chat_id"
+          ],
+          "en": [
+            "KYC blocked: actionable next steps",
+            "Payment failed: explain reasons + retry plan",
+            "Notification failed: fallback to email/in-app + Telegram setup guidance"
+          ]
+        },
+        "whyItMatters": {
+          "zh": [
+            "证明合作伙伴是“增长闭环”而非单点功能：钱进来后用户知道下一步做什么，并完成第一次执行",
+            "展示运营可量化思维：每一步有埋点、有漏斗、断点一目了然",
+            "展示失败兜底：运营不只管 happy path，更要管失败时用户怎么走下去",
+            "为真实集成做准备：PoC 输出风险清单、依赖项和上线复盘模板"
+          ],
+          "en": [
+            "Turns partner deposits into an execution loop, not a dead-end",
+            "Telemetry-first funnel design makes bottlenecks obvious",
+            "Resilient UX with failure fallbacks",
+            "De-risks real integration with clear requirements and playbook"
+          ]
+        },
+        "demoScript2Min": {
+          "zh": [
+            "开场 10 秒：'我用这个 PoC 验证合作伙伴流量是否能转化为执行用户，并且每一步可量化。'",
+            "展示控制面板：切换 success/failure 场景（KYC fail / payment fail）",
+            "走一遍 happy path：deposit → plan → confirm → execute → notify（停在 mock 结果页）",
+            "打开漏斗看板：四个 KPI 实时变化（并指出最可能的断点）",
+            "收尾：'PoC 跑通后才推进真实集成与联合内容，并按同一套指标复盘上线效果。'"
+          ],
+          "en": [
+            "Validate conversion from partner deposit to first execution",
+            "Show success/failure toggles",
+            "Run through the happy path",
+            "Explain funnel KPIs and likely drop-off points",
+            "Close with PoC-to-integration playbook"
+          ]
+        },
+        "screenshots": [
+          {
+            "alt": "PoC dashboard screenshot placeholder",
+            "src": "/images/projects/card-to-autopilot/dashboard.png"
+          },
+          {
+            "alt": "Funnel KPI board screenshot placeholder",
+            "src": "/images/projects/card-to-autopilot/funnel.png"
+          }
+        ],
+        "quickstart": [
+          "git clone https://github.com/7metachain/minara-moonpay-demo",
+          "npm install",
+          "npm run dev  (mock sandbox mode, no real money / no real API)"
+        ],
+        "risksAndMitigations": [
+          {
+            "risk": "真实集成涉及合规/KYC 与支付失败率",
+            "mitigation": "在 PoC 里先定义失败分支与用户兜底；上线前做地区/渠道灰度与监控告警"
+          },
+          {
+            "risk": "新手执行误触发导致负反馈",
+            "mitigation": "默认小额、限频、首次确认；把“先通知后交易”的模式作为默认新手路径"
+          }
+        ],
+        "links": {
+          "repo": "https://github.com/7metachain/minara-moonpay-demo",
+          "liveDemo": "",
+          "video": ""
+        }
+      }
+    ]
+  }

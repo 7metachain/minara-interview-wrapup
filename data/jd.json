@@ -1,0 +1,99 @@
+{
+  "pillars": [
+    {
+      "id": "p1-evangelism",
+      "title": { "zh": "技术布道与内容影响力", "en": "Technical Evangelism & Content Impact" },
+      "icon": "Megaphone",
+      "bullets": {
+        "zh": [
+          "输出高质量技术内容：博客文章、教程视频、案例拆解、最佳实践等",
+          "设计并制作可复用 Demo / 示例项目，降低开发者上手门槛",
+          "参加技术大会/Meetup/线上直播，主题演讲与产品展示"
+        ],
+        "en": [
+          "Produce high-quality technical content: blog posts, tutorial videos, case studies, best practices",
+          "Design reusable demos and sample projects to lower developer onboarding barriers",
+          "Participate in tech conferences, meetups, and livestreams for speaking and product demos"
+        ]
+      },
+      "evidence": [
+        { "label": "API Cookbook", "href": "/projects/minara-api-cookbook", "type": "project" },
+        { "label": "Content Radar 模块", "href": "/automation#m-content-radar", "type": "module" },
+        { "label": "Demo Factory 模块", "href": "/automation#m-demo-factory", "type": "module" },
+        { "label": "AI Demo 经验 @ 菲玲科技", "href": "/resume#feeling-tech", "type": "resume" }
+      ],
+      "kpis": ["TTFV < 5 min", "内容发布频次", "内容带来的注册/激活", "Demo 跑通率"]
+    },
+    {
+      "id": "p2-community",
+      "title": { "zh": "开发者社区运营与生态建设", "en": "Developer Community & Ecosystem" },
+      "icon": "Users",
+      "bullets": {
+        "zh": [
+          "深度参与全球开发者社区，答疑、引导与促活",
+          "识别并运营 KOL/核心开发者，建立贡献者梯队与激励机制",
+          "策划组织黑客松、挑战赛、工作坊、Office Hours"
+        ],
+        "en": [
+          "Deeply engage global developer communities: Q&A, guidance, activation",
+          "Identify and manage KOLs/core contributors with tiered incentives",
+          "Plan and organize hackathons, challenges, workshops, and office hours"
+        ]
+      },
+      "evidence": [
+        { "label": "Inbox Triage 模块", "href": "/automation#m-inbox-triage", "type": "module" },
+        { "label": "FAQ Auto-Responder", "href": "/automation#m-faq-autoresponder", "type": "module" },
+        { "label": "Herstory Web3 助教", "href": "/resume#herstory", "type": "resume" },
+        { "label": "Google 跨团队协作", "href": "/resume#google", "type": "resume" }
+      ],
+      "kpis": ["首次响应时长 < 2h", "自助解决率", "UGC 数量", "核心贡献者留存"]
+    },
+    {
+      "id": "p3-partners",
+      "title": { "zh": "厂商合作与技术落地", "en": "Partner Integration & Technical Delivery" },
+      "icon": "Handshake",
+      "bullets": {
+        "zh": [
+          "对接头部大模型/云厂商/开发平台，推进合作谈判、联合方案与技术集成落地",
+          "将外部资源转化为产品战斗力与增长抓手",
+          "推动合作项目从 PoC 到上线交付"
+        ],
+        "en": [
+          "Engage top AI/cloud/platform vendors for partnership negotiations and joint solutions",
+          "Convert external resources into product capabilities and growth drivers",
+          "Drive partner projects from PoC through to production delivery"
+        ]
+      },
+      "evidence": [
+        { "label": "Card-to-Autopilot PoC", "href": "/projects/card-to-autopilot", "type": "project" },
+        { "label": "PoC Delivery Tracker", "href": "/automation#m-poc-delivery-tracker", "type": "module" },
+        { "label": "Co-Marketing Kit", "href": "/automation#m-comarketing-kit", "type": "module" }
+      ],
+      "kpis": ["PoC 周期", "合作转化率", "合作渠道新增", "激活质量 (TTFV/留存)"]
+    },
+    {
+      "id": "p4-feedback",
+      "title": { "zh": "反馈闭环与产品共创", "en": "Feedback Loop & Product Co-creation" },
+      "icon": "RefreshCw",
+      "bullets": {
+        "zh": [
+          "建立社区反馈机制：收集需求、吐槽、失败案例与典型场景",
+          "协作推动优化：体验、文档、SDK、工具链与稳定性",
+          "跟踪关键指标与迭代效果，持续把产品推到 Next Level"
+        ],
+        "en": [
+          "Establish community feedback mechanisms for requirements, complaints, failure cases",
+          "Collaborate to improve UX, docs, SDK, toolchain, and stability",
+          "Track key metrics and iteration outcomes to continuously level up the product"
+        ]
+      },
+      "evidence": [
+        { "label": "Feedback Miner 模块", "href": "/automation#m-feedback-miner", "type": "module" },
+        { "label": "Growth KPI Reporter", "href": "/automation#m-growth-kpi-reporter", "type": "module" },
+        { "label": "反馈闭环经验 @ 菲玲科技", "href": "/resume#feeling-tech", "type": "resume" },
+        { "label": "PoC 漏斗看板", "href": "/projects/card-to-autopilot", "type": "project" }
+      ],
+      "kpis": ["反馈闭环周期", "同类问题复发率", "7日留存", "负反馈率下降"]
+    }
+  ]
+}

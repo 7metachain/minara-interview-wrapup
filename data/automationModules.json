@@ -1,0 +1,287 @@
+{
+    "meta": {
+      "title": "OpenClaw × Minara：运营自动化模块库",
+      "defaultSort": "jd_quadrants",
+      "priorities": ["MVP", "Next", "Later"],
+      "note": "All modules are designed for Ubuntu + Docker sandbox deployment. Default mode is draft-first (human review) for any outbound messaging."
+    },
+    "pillars": [
+      {
+        "id": "p1-evangelism",
+        "title": "1）技术布道与内容影响力",
+        "jdBullets": [
+          "输出高质量技术内容：博客文章、教程视频、案例拆解、最佳实践等",
+          "设计并制作可复用 Demo / 示例项目，降低开发者上手门槛",
+          "参加技术大会/Meetup/线上直播，主题演讲与产品展示"
+        ],
+        "modules": [
+          {
+            "id": "m-content-radar",
+            "name": "Content Radar｜选题雷达与素材采集器",
+            "oneLiner": "自动抓取 Minara 文档/开源/社区/竞品信号，生成每周选题与素材包。",
+            "priority": "MVP",
+            "triggers": [
+              "Cron: 每天 09:00",
+              "Docs/GitHub Release 监听",
+              "社区热词突增（workflow/copilot/x402/credits/telegram chat_id 等）"
+            ],
+            "inputs": [
+              "Minara docs / help center",
+              "GitHub（repo、issues、PR、release notes）",
+              "Discord/Telegram/Reddit/X 热门讨论",
+              "竞品 watchlist"
+            ],
+            "outputs": [
+              "今日/本周 Top 5 选题（标题+角度+受众+CTA）",
+              "素材包（引用链接、截图候选、FAQ、反对观点）",
+              "建议内容形态（thread/blog/video/FAQ）"
+            ],
+            "openclawComponents": ["browser_skill", "multi_channel_gateway", "summarize_skill", "memory_rag", "cron_tool"],
+            "kpis": ["内容发布频次", "内容带来的注册/激活", "选题到发布转化率", "内容互动率"],
+            "opsNotes": "默认输出到 Notion/Trello 草稿列表，人工确认后发布。"
+          },
+          {
+            "id": "m-doc-to-post",
+            "name": "Doc-to-Post Repurposer｜文档多平台改写分发",
+            "oneLiner": "把 docs 更新自动改写成 Discord/Telegram/Reddit/X 不同风格的可发布草稿。",
+            "priority": "Next",
+            "triggers": ["Docs 更新", "新功能上线", "你手动丢一个链接/markdown"],
+            "inputs": ["Docs 链接/段落", "目标平台列表", "语气/长度偏好"],
+            "outputs": [
+              "Discord 公告版（分点+thread）",
+              "Telegram 版（更口语+行动按钮）",
+              "Reddit 版（更中立+解释更多）",
+              "X thread 版（钩子+步骤+CTA）"
+            ],
+            "openclawComponents": ["multi_channel_gateway", "summarize_skill", "memory_rag"],
+            "kpis": ["发布效率", "跨平台覆盖率", "内容复用率", "点击/转化（UTM）"],
+            "opsNotes": "强制走 draft-first；对外发布前要求你点确认。"
+          },
+          {
+            "id": "m-demo-factory",
+            "name": "Demo Factory｜可复用 Demo/模板生成与验证",
+            "oneLiner": "自动生成“可运行示例 + README + 截图/GIF + 常见问题”，并在 sandbox 里跑验证。",
+            "priority": "MVP",
+            "triggers": ["Cron: 每周 2 次", "新功能/新 API 发布", "你手动输入 demo 需求"],
+            "inputs": ["demo 主题（API/Workflow/Perps）", "目标受众（新手/开发者/量化）", "仓库模板"],
+            "outputs": [
+              "可运行 demo repo（含 README、Quickstart、FAQ）",
+              "3 条可复制 prompts（入门/进阶/高阶）",
+              "演示脚本（点哪里、说什么、风控提示）",
+              "验证报告（哪些步骤会失败、失败兜底文案）"
+            ],
+            "openclawComponents": ["sandbox_docker", "browser_skill", "github_plugin", "summarize_skill"],
+            "kpis": ["TTFV（time to first value）", "demo 跑通率", "开发者激活率", "文档/仓库 star/fork"],
+            "opsNotes": "sandbox mock 优先，避免真实资金/真实 API 依赖。"
+          },
+          {
+            "id": "m-talk-kit",
+            "name": "Talk/Workshop Kit Builder｜演讲&Workshop 物料生成",
+            "oneLiner": "输入主题与受众，自动产出演讲大纲、speaker notes、demo 走位、FAQ。",
+            "priority": "Later",
+            "triggers": ["你创建活动", "Calendar/Notion 新建活动条目"],
+            "inputs": ["主题", "受众", "时长（10/20/45min）", "demo 选择"],
+            "outputs": ["大纲+讲稿", "demo script", "彩排 checklist", "活动后复盘模板"],
+            "openclawComponents": ["notion_plugin", "summarize_skill", "memory_rag"],
+            "kpis": ["报名→出席率", "活动后激活", "活动内容复用率"]
+          }
+        ]
+      },
+  
+      {
+        "id": "p2-community",
+        "title": "2）开发者社区运营与生态建设",
+        "jdBullets": [
+          "深度参与全球开发者社区，答疑、引导与促活",
+          "识别并运营 KOL/核心开发者，建立贡献者梯队与激励机制",
+          "策划组织黑客松、挑战赛、工作坊、Office Hours"
+        ],
+        "modules": [
+          {
+            "id": "m-inbox-triage",
+            "name": "Multi-Channel Inbox Triage｜全渠道问题分流中枢",
+            "oneLiner": "Discord/Telegram/Reddit/GitHub 问题统一收敛、分类、建单、SLA 提醒。",
+            "priority": "MVP",
+            "triggers": [
+              "实时监听：@提及/关键词/负面情绪/高频重复问题",
+              "每天汇总：Top issues"
+            ],
+            "inputs": ["Discord", "Telegram", "Reddit", "GitHub Issues/Discussions", "FAQ/Docs"],
+            "outputs": [
+              "自动标签：Bug/How-to/Feature request/Risk/Credits/Perps…",
+              "自动建单到 Notion/Trello（含复现步骤/链接/截图）",
+              "SLA 超时提醒（2h 未响应）",
+              "重复问题合并建议"
+            ],
+            "openclawComponents": ["multi_channel_gateway", "sentiment_classifier_subagent", "notion_plugin", "trello_plugin", "memory_rag"],
+            "kpis": ["首次响应时长", "解决率", "重复问题占比下降", "工单积压量"],
+            "opsNotes": "高风险话题（资金/亏损/安全）自动升级人工；其余可自动草拟回复。"
+          },
+          {
+            "id": "m-faq-autoresponder",
+            "name": "FAQ Auto-Responder｜RAG 自动答疑（带升级策略）",
+            "oneLiner": "对常见问题自动从 Notion/Docs 检索生成回复，低置信度先澄清再答。",
+            "priority": "MVP",
+            "triggers": ["用户提问命中 FAQ 意图", "在群里出现“怎么做/为什么/报错”模式"],
+            "inputs": ["Notion FAQ", "Docs/Help Center", "历史工单与最佳答案"],
+            "outputs": [
+              "可直接发送的答复（步骤+链接+注意事项）",
+              "置信度低 → 只问 1 个关键澄清问题",
+              "风险话题 → 升级人工并给安抚话术"
+            ],
+            "openclawComponents": ["memory_rag", "notion_plugin", "multi_channel_gateway"],
+            "kpis": ["自助解决率", "误答率", "升级率", "人工节省时间"],
+            "opsNotes": "默认给出“最后更新时间”和“适用版本”，避免过时信息。"
+          },
+          {
+            "id": "m-contributor-crm",
+            "name": "KOL/Contributor CRM｜贡献者识别与梯队运营",
+            "oneLiner": "自动识别高质量贡献者（PR/回答/模板），分层运营并生成触达草稿。",
+            "priority": "Next",
+            "triggers": ["GitHub PR/Issue 高质量", "Discord/Telegram 高赞回答", "模板投稿"],
+            "inputs": ["贡献行为数据", "社交账号/handle", "贡献历史"],
+            "outputs": [
+              "贡献者分层（New/Core/Ambassador）",
+              "感谢/邀请共创/credits 激励私信草稿",
+              "每周贡献者榜单与亮点"
+            ],
+            "openclawComponents": ["github_plugin", "multi_channel_gateway", "notion_plugin", "memory_rag"],
+            "kpis": ["UGC 数量（模板/教程/PR）", "核心贡献者留存", "贡献者带来的新增"],
+            "opsNotes": "触达必须人工确认，避免群发骚扰。"
+          },
+          {
+            "id": "m-officehours-orchestrator",
+            "name": "Office Hours & Challenge Orchestrator｜活动编排自动化",
+            "oneLiner": "每周 Office Hours：收集问题→聚类→脚本→会后沉淀→分发。",
+            "priority": "Next",
+            "triggers": ["Cron: 每周固定", "你创建活动条目"],
+            "inputs": ["报名表/问题收集", "频道历史消息", "FAQ/Docs"],
+            "outputs": [
+              "活动公告（多平台草稿）",
+              "问题聚类 & 主持脚本",
+              "会后 Top10 Q&A 沉淀到 Docs/Notion"
+            ],
+            "openclawComponents": ["cron_tool", "multi_channel_gateway", "summarize_skill", "notion_plugin", "memory_rag"],
+            "kpis": ["报名→出席率", "问题解决率", "内容复用率", "活动后激活"]
+          }
+        ]
+      },
+  
+      {
+        "id": "p3-partners",
+        "title": "3）厂商合作与技术落地",
+        "jdBullets": [
+          "对接头部大模型/云厂商/开发平台，推进合作谈判、联合方案与技术集成落地",
+          "将外部资源转化为产品战斗力与增长抓手",
+          "推动合作项目从 PoC 到上线交付"
+        ],
+        "modules": [
+          {
+            "id": "m-partner-watchlist",
+            "name": "Partner Watchlist｜合作伙伴机会雷达",
+            "oneLiner": "监控钱包/支付/云/模型/交易所生态动态，输出可打的合作机会清单。",
+            "priority": "Next",
+            "triggers": ["Cron: 每周", "指定 partner 发布/更新", "行业重大事件"],
+            "inputs": ["partner 官网/博客", "GitHub/Docs 更新", "活动/hackathon/grant 信息"],
+            "outputs": [
+              "本周机会清单（why now / 对方收益 / 我方收益 / 下一步）",
+              "合作触达邮件/DM 草稿",
+              "建议 PoC 方案（最小闭环）"
+            ],
+            "openclawComponents": ["browser_skill", "summarize_skill", "notion_plugin", "memory_rag", "cron_tool"],
+            "kpis": ["有效线索数", "进入 PoC 数", "合作转化率"]
+          },
+          {
+            "id": "m-poc-delivery-tracker",
+            "name": "PoC→上线 Delivery Tracker｜跨团队交付编排器",
+            "oneLiner": "把合作从“谈成”推进到“上线”，自动生成里程碑、风险、周报与对齐文档。",
+            "priority": "MVP",
+            "triggers": ["创建 PoC 项目", "里程碑变更", "阻塞超过阈值"],
+            "inputs": ["需求范围", "技术接口", "验收标准", "宣发计划"],
+            "outputs": [
+              "里程碑（PoC/集成/验收/上线/宣发）",
+              "风险清单（合规/安全/依赖/体验）",
+              "每周 status update（内外部两份版本）"
+            ],
+            "openclawComponents": ["notion_plugin", "trello_plugin", "summarize_skill", "cron_tool"],
+            "kpis": ["PoC 周期", "延期原因分布", "上线率", "跨团队响应时效"],
+            "opsNotes": "对外版本自动隐藏内部细节，只保留对齐口径与时间线。"
+          },
+          {
+            "id": "m-comarketing-kit",
+            "name": "Co-Marketing Asset Generator｜联合营销资产一键包",
+            "oneLiner": "为合作上线阶段自动生成教程/活动脚本/多平台物料，并附带归因方案。",
+            "priority": "Next",
+            "triggers": ["合作进入上线/宣发阶段"],
+            "inputs": ["合作方卖点", "用户路径", "活动/奖励机制", "UTM 规则"],
+            "outputs": [
+              "联合教程（双方视角）",
+              "直播/Workshop 脚本 + FAQ",
+              "多平台分发文案（draft-first）",
+              "归因 checklist（UTM/转化事件）"
+            ],
+            "openclawComponents": ["summarize_skill", "multi_channel_gateway", "notion_plugin", "memory_rag"],
+            "kpis": ["合作渠道新增", "激活质量（TTFV/留存）", "付费转化"]
+          }
+        ]
+      },
+  
+      {
+        "id": "p4-feedback",
+        "title": "4）反馈闭环与产品共创",
+        "jdBullets": [
+          "建立社区反馈机制：收集需求、吐槽、失败案例与典型场景",
+          "协作推动优化：体验、文档、SDK、工具链与稳定性",
+          "跟踪关键指标与迭代效果，持续把产品推到 Next Level"
+        ],
+        "modules": [
+          {
+            "id": "m-feedback-miner",
+            "name": "Feedback Miner｜失败案例/吐槽/需求挖掘与归因",
+            "oneLiner": "把社区噪音自动聚类成可执行的产品问题清单与复现卡片。",
+            "priority": "MVP",
+            "triggers": ["负面情绪上升", "同类问题重复出现", "关键字：bug/failed/credits/telegram/liq/stop loss"],
+            "inputs": ["Discord/Telegram/Reddit", "工单系统", "GitHub issues"],
+            "outputs": [
+              "Top 10 失败场景卡片（复现步骤/影响面/建议归类：文档or产品or引导）",
+              "自动生成 GitHub issue 草稿（含链接/截图/日志占位）",
+              "高风险问题报警（资金/强平/安全）"
+            ],
+            "openclawComponents": ["multi_channel_gateway", "sentiment_classifier_subagent", "topic_cluster_subagent", "github_plugin", "notion_plugin"],
+            "kpis": ["反馈闭环周期（出现→修复/解释）", "同类问题复发率", "负反馈率", "工单量趋势"]
+          },
+          {
+            "id": "m-release-sync",
+            "name": "Release Notes → Community Sync｜更新同步与定向回传",
+            "oneLiner": "监听发布说明，把更新同步到社区，并定向回访曾反馈用户形成闭环。",
+            "priority": "Next",
+            "triggers": ["GitHub release", "Docs 更新", "hotfix 发布"],
+            "inputs": ["release notes", "关联 issue 列表", "受影响用户列表（来自工单/社区）"],
+            "outputs": [
+              "多平台更新公告草稿",
+              "对“曾反馈用户”的定向回访模板（已修复/怎么验证）",
+              "更新后反馈收集与聚类"
+            ],
+            "openclawComponents": ["github_plugin", "multi_channel_gateway", "summarize_skill", "memory_rag"],
+            "kpis": ["更新触达率", "回访响应率", "修复满意度", "二次复发率"]
+          },
+          {
+            "id": "m-growth-kpi-reporter",
+            "name": "Growth KPI Reporter｜漏斗指标与实验复盘周报",
+            "oneLiner": "每周自动产出激活/留存/付费漏斗与实验复盘，给出下一周行动建议。",
+            "priority": "MVP",
+            "triggers": ["Cron: 每周一 09:00"],
+            "inputs": ["运营漏斗数据（埋点/仪表盘）", "社区工单数据", "实验配置"],
+            "outputs": [
+              "漏斗：访问→激活→部署→运行→留存→付费",
+              "关键实验结果（例如 alert-first vs auto-buy）",
+              "Top 5 下周建议（Impact×Effort 排序）"
+            ],
+            "openclawComponents": ["browser_skill", "sandbox_docker", "python_runner", "notion_plugin", "cron_tool"],
+            "kpis": ["TTFV", "workflow deploy率", "7日留存", "SLA", "负反馈率"],
+            "opsNotes": "若无真实数据源，先用 mock 数据结构占位，确保周报链路可跑。"
+          }
+        ]
+      }
+    ]
+  }

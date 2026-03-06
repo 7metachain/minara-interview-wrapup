@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "version": "ops",
+    "lastUpdated": "2026-03-06"
+  },
+  "profile": {
+    "name": "Jiajia Chen",
+    "title": {
+      "zh": "AI 技术运营 / DevRel | 技术布道 · 社区生态 · AI 工作流",
+      "en": "AI Tech Operations / DevRel | Technical Evangelism · Community · AI Workflow"
+    },
+    "location": "Shanghai, China",
+    "contact": {
+      "email": "jchen.bsl.2024@gmail.com",
+      "phone": "+86 17780448185",
+      "github": "https://github.com/7metachain"
+    },
+    "summary": {
+      "zh": "纽约大学（NYU）计算机科学硕士，具备中英双语全职业沟通能力。融合顶级工程经验（Google）、AI 快速原型构建能力（Coze、n8n、Cursor）与开发者社区实践（Herstory Web3 助教、Women Coding Community 参与者），擅长将复杂 AI 模型转化为高质量 Demo 与技术内容，通过技术布道与社区驱动的产品迭代，连接开发者与产品生态。",
+      "en": "Bilingual DevRel & AI Product Expert with an M.S. in Computer Science from NYU and full-professional English proficiency. Brings a unique blend of top-tier engineering experience (Google), rapid AI prototyping (Coze, n8n, Cursor), and hands-on developer community engagement (Herstory Web3 TA, Women Coding Community participant). Passionate about bridging the gap between complex AI models and developers through high-quality demos, technical evangelism, and community-driven product iterations."
+    }
+  },
+  "skills": {
+    "tech": {
+      "label": { "zh": "技术栈 & AI", "en": "Tech Stack & AI" },
+      "items": ["C++", "Python", "JS/TS", "Coze", "n8n", "Cursor", "Claude Code", "Node.js", "Solidity", "Next.js", "React", "Tailwind CSS"]
+    },
+    "ops": {
+      "label": { "zh": "技术运营 & 产品", "en": "Tech Operations & Product" },
+      "items": ["快速原型 / Rapid Prototyping", "技术写作 / Technical Writing", "跨部门协作 / Cross-functional", "社区建设 / Community Building", "工作流自动化 / Workflow Automation", "开发者体验 / Developer Experience"]
+    },
+    "web3": {
+      "label": { "zh": "Web3", "en": "Web3" },
+      "items": ["Solidity", "wagmi/viem", "Foundry", "IPFS", "DeFi", "RWA"]
+    },
+    "lang": {
+      "label": { "zh": "语言能力", "en": "Languages" },
+      "items": ["English (Bilingual / Full Professional)", "Mandarin (Native)"]
+    }
+  },
+  "education": [
+    {
+      "id": "nyu",
+      "school": { "zh": "纽约大学 (NYU)", "en": "New York University (NYU)" },
+      "degree": { "zh": "计算机科学硕士", "en": "M.S. in Computer Science" },
+      "date": "2014 – 2016",
+      "details": { "zh": ["奖学金获得者"], "en": ["Scholarship Recipient"] }
+    },
+    {
+      "id": "shu",
+      "school": { "zh": "上海大学", "en": "Shanghai University" },
+      "degree": { "zh": "计算机科学与工程学士", "en": "B.S. in CS & Engineering" },
+      "date": "2010 – 2014",
+      "details": { "zh": [], "en": [] }
+    }
+  ],
+  "experience": [
+    {
+      "id": "feeling-tech",
+      "role": { "zh": "AI 产品经理", "en": "AI Product Manager" },
+      "company": { "zh": "菲玲科技 | 上海", "en": "Feeling Technology | Shanghai" },
+      "date": "2024.12 – Present",
+      "highlights": {
+        "zh": [
+          "[技术布道 & Demo] 使用 Vibe Coding 方法论（Cursor、Claude Code）设计并实现高度可复用的 AI Demo 与快速原型，显著降低开发者与业务方的上手门槛。",
+          "[工具链 & 最佳实践] 基于 n8n 和 Coze Luopan 编排复杂 AI 工作流，管理 Prompt 版本迭代，输出内部最佳实践与技术文档，优化团队效率。",
+          "[反馈闭环 & 共创] 作为工程与业务/用户团队间的关键桥梁，建立反馈闭环，收集痛点、将需求转化为产品模块，持续推动 AI 工具链升级迭代。"
+        ],
+        "en": [
+          "[Tech Evangelism & Demos] Designed and implemented highly reproducible AI demos and rapid prototypes using vibe coding methodologies (Cursor, Claude Code), significantly lowering the onboarding barrier for developers and stakeholders.",
+          "[Toolchain & Best Practices] Orchestrated complex AI workflows using n8n and Coze Luopan, managing prompt versioning and publishing internal best practices/technical documentation to optimize team efficiency.",
+          "[Feedback Loop & Co-creation] Served as the critical bridge between engineering and business/user teams. Established a feedback loop to collect pain points, translate requirements into product modules, and continuously push the AI toolchain to the next level."
+        ]
+      },
+      "pillars": ["p1-evangelism", "p4-feedback"]
+    },
+    {
+      "id": "yunjizhi",
+      "role": { "zh": "后端工程师 (C++)", "en": "Backend Engineer (C++)" },
+      "company": { "zh": "云集至科技 | 成都", "en": "Yunjizhi Technology | Chengdu" },
+      "date": "2021 – 2023",
+      "highlights": {
+        "zh": [
+          "开发基于 C++ 的数据库数据脱敏及加解密中间件后端系统。",
+          "构建并维护中间层架构，实现数据包/流量级别的实时加解密，支持多种主流数据库。",
+          "设计安全数据处理与传输流程，确保企业敏感数据合规性。"
+        ],
+        "en": [
+          "Developed C++ backend systems for database data masking and encryption middleware.",
+          "Maintained middleware layer for packet-level encryption across multiple databases.",
+          "Designed secure data transmission workflows to improve sensitive data protection."
+        ]
+      },
+      "pillars": []
+    },
+    {
+      "id": "google",
+      "role": { "zh": "前端 / 测试工程师", "en": "Frontend / Test Engineer" },
+      "company": "Google",
+      "date": "2019 – 2020",
+      "highlights": {
+        "zh": [
+          "参与内部系统开发及大规模前端框架迁移项目，提升系统稳定性与发布质量。",
+          "开发专项内部工具以提升工程效率，优化开发者工作流（Developer Experience）。",
+          "在全球化跨职能团队中高效协作，展现出色的 Business English 沟通能力与复杂技术生态导航能力。"
+        ],
+        "en": [
+          "Contributed to internal system development and large-scale frontend framework migrations, improving system stability and release quality.",
+          "Developed specialized internal tools to enhance engineering efficiency and optimize developer workflows (Developer Experience).",
+          "Collaborated globally across cross-functional teams, demonstrating strong business English communication and navigating complex technical ecosystems."
+        ]
+      },
+      "pillars": ["p2-community"]
+    },
+    {
+      "id": "usfoods",
+      "role": { "zh": "全栈工程师", "en": "Full-Stack Engineer" },
+      "company": "US Foods",
+      "date": "2017 – 2019",
+      "highlights": {
+        "zh": [
+          "使用 Angular 和 Node.js 开发全栈架构的员工端内部系统。",
+          "实施自动化测试并优化 QA 工作流，支持更快速可靠的功能发布。",
+          "与产品及工程相关方跨部门协作，交付关键业务功能。"
+        ],
+        "en": [
+          "Developed employee-facing systems using Angular and Node.js in a full-stack environment.",
+          "Implemented automated testing and optimized QA workflows for reliable releases.",
+          "Collaborated cross-functionally with product and engineering stakeholders to deliver critical business features."
+        ]
+      },
+      "pillars": []
+    }
+  ],
+  "community": [
+    {
+      "id": "herstory",
+      "name": { "zh": "Web3 助教", "en": "Web3 Teaching Assistant" },
+      "org": "Herstory",
+      "date": "2026 – Present",
+      "description": {
+        "zh": "帮助零代码基础的女性学员从零上手 Web3 与 Solidity 开发，通过体系化教学将复杂的区块链概念拆解为可实操的学习路径。",
+        "en": "Guiding women with zero coding background into Web3 and Solidity development, breaking down complex blockchain concepts into hands-on, structured learning paths."
+      }
+    },
+    {
+      "id": "women-coding",
+      "name": { "zh": "Women Coding Community 参与者", "en": "Women Coding Community Participant" },
+      "org": "NYU",
+      "date": "2014 – 2016",
+      "description": {
+        "zh": "在校期间活跃参与女性编程社区，参与技术讨论与学习小组，助力女性开发者互助成长。",
+        "en": "Actively participated in a female developer community, engaging in technical discussions and study groups to foster mutual growth."
+      }
+    },
+    {
+      "id": "ta-quantum",
+      "name": { "zh": "助教: 量子计算", "en": "TA: Quantum Computation" },
+      "org": "NYU",
+      "date": "2014 – 2016",
+      "description": {
+        "zh": "面向研究生的课程辅导与技术讲解，协助教授完成教学任务。",
+        "en": "Graduate-level course instruction and technical mentoring, assisting professor with teaching duties and developing technical evangelism skills."
+      }
+    }
+  ]
+}
