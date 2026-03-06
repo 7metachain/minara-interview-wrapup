@@ -6,8 +6,7 @@ import { AppShell } from "@/components/app-shell";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Card } from "@/components/ui/card";
 import { ProjectCard } from "@/components/project-card";
-import { PillarSnapshot } from "@/components/pillar-snapshot";
-import { jd, projects, site, t } from "@/lib/content";
+import { projects, site, t } from "@/lib/content";
 import { useLocale } from "@/components/locale-provider";
 
 export default function HomePage() {
@@ -40,7 +39,7 @@ export default function HomePage() {
           <ul className="mt-4 space-y-3 text-sm text-muted">
             <li>• 数据驱动：Resume / Projects / Automation 全部来自 `/data/*`。</li>
             <li>• 叙事完整：从个人背景、项目交付到自动化模块库形成一条线。</li>
-            <li>• 可直接面试演示：JD Fit、案例页、简历页、自动化页各自可独立讲。</li>
+            <li>• 可直接面试演示：案例页、简历页、自动化页都能独立展开讲。</li>
           </ul>
         </Card>
       </section>
@@ -70,19 +69,6 @@ export default function HomePage() {
             <p className="mt-2 text-sm text-muted">{locale === "zh" ? "OpenClaw × Minara 运营自动化模块库，按 JD 四大支柱组织。" : "OpenClaw × Minara automation module library grouped by JD pillars."}</p>
             <Link href="/automation" className="mt-4 inline-flex items-center gap-2 text-sm text-accent-light">Open <ArrowRight className="h-4 w-4" /></Link>
           </Card>
-        </div>
-      </section>
-
-      <section className="mt-16 space-y-6">
-        <SectionHeading
-          eyebrow="JD Fit"
-          title={locale === "zh" ? "4 个岗位支柱的证据快照" : "Evidence snapshot for the 4 JD pillars"}
-          description={locale === "zh" ? "每个支柱都链接到对应的简历锚点、项目案例和自动化模块。" : "Each pillar links to resume anchors, project case studies, and automation modules."}
-        />
-        <div className="grid gap-4 lg:grid-cols-2">
-          {jd.pillars.map((pillar) => (
-            <PillarSnapshot key={pillar.id} pillar={pillar} locale={locale} />
-          ))}
         </div>
       </section>
 

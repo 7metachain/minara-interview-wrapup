@@ -77,12 +77,12 @@ export const site = {
   // Primary CTAs (used on Home hero)
   ctas: {
     primary: {
-      zh: { label: "查看 JD Fit", href: "/jd-fit" },
-      en: { label: "View JD Fit", href: "/jd-fit" },
-    },
-    secondary: {
       zh: { label: "查看 Projects", href: "/projects" },
       en: { label: "View Projects", href: "/projects" },
+    },
+    secondary: {
+      zh: { label: "查看简历", href: "/resume" },
+      en: { label: "View Resume", href: "/resume" },
     },
     resumePdf: {
       label: { zh: "下载简历 PDF", en: "Download Resume PDF" },
@@ -93,7 +93,6 @@ export const site = {
   // Global navigation (do not hardcode nav elsewhere)
   nav: [
     { id: "home", href: "/", label: { zh: "首页", en: "Home" } },
-    { id: "jd-fit", href: "/jd-fit", label: { zh: "JD Fit", en: "JD Fit" } },
     { id: "projects", href: "/projects", label: { zh: "项目", en: "Projects" } },
     { id: "resume", href: "/resume", label: { zh: "简历", en: "Resume" } },
     {
